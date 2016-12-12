@@ -3,11 +3,8 @@
  Animal Letters - code based on sample provided by Amazon.
  
  Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-
  http://aws.amazon.com/apache2.0/
-
  or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
@@ -94,16 +91,38 @@ function onIntent(intentRequest, session, callback) {
     if (session.attributes && session.attributes.userPromptedToContinue) {
         delete session.attributes.userPromptedToContinue;
 		if ("AMAZON.YesIntent" === intentName) {handleRepeatRequest(intent, session, callback)}
-        else {handleFinishSessionRequest(intent, session, callback)}
+			else if ("AMAZON.StartOverIntent" === intentName) {
+				getWelcomeResponse(callback);
+			} else if ("AMAZON.RepeatIntent" === intentName) {
+				handleRepeatRequest(intent, session, callback);
+			} else if ("AMAZON.HelpIntent" === intentName) {
+				handleGetHelpRequest(intent, session, callback);
+			} else if ("AMAZON.StopIntent" === intentName) {
+				handleFinishSessionRequest(intent, session, callback);
+			} else if ("AMAZON.CancelIntent" === intentName) {
+				handleFinishSessionRequest(intent, session, callback);
+			} else {handleFinishSessionRequest(intent, session, callback)
+			}
         } 
-
+		
 	// handle yes/no(anything but yes) intent after the user has been prompted for another game
     if (session.attributes && session.attributes.userPromptedForAnotherGame) {
         delete session.attributes.userPromptedForAnotherGame;
         if ("AMAZON.YesIntent" === intentName) {getWelcomeResponse(callback)}
-        else {handleFinishSessionRequest(intent, session, callback)}
-        } 
-	
+			else if ("AMAZON.StartOverIntent" === intentName) {
+				getWelcomeResponse(callback);
+			} else if ("AMAZON.RepeatIntent" === intentName) {
+				handleRepeatRequest(intent, session, callback);
+			} else if ("AMAZON.HelpIntent" === intentName) {
+				handleGetHelpRequest(intent, session, callback);
+			} else if ("AMAZON.StopIntent" === intentName) {
+				handleFinishSessionRequest(intent, session, callback);
+			} else if ("AMAZON.CancelIntent" === intentName) {
+				handleFinishSessionRequest(intent, session, callback);
+			} else {handleFinishSessionRequest(intent, session, callback)
+			}
+	}
+			
     // dispatch custom intents to handlers here
     if ("AnswerIntent" === intentName) {
         handleAnswerRequest(intent, session, callback);
@@ -125,8 +144,7 @@ function onIntent(intentRequest, session, callback) {
         handleFinishSessionRequest(intent, session, callback);
     } else if ("AMAZON.CancelIntent" === intentName) {
         handleFinishSessionRequest(intent, session, callback);
-    } else {
-        throw "Invalid intent";
+    } else {handleFinishSessionRequest(intent, session, callback)
     }
 }
 
@@ -158,19 +176,19 @@ function getWelcomeResponse(callback) {
 
 	var animalAnswers = [
 		{letter: "A", 
-		animals:["aardvark","aardwolf","afghan hound","albatross","alligator","anaconda","ant","anteater","antelope","ape","aphid","arctic fox","armadillo","auk","avocet"]},
+		animals:["aardvark","aardwolf","adder","afghan hound","albatross","alligator","anaconda","ant","anteater","antelope","ape","aphid","arctic fox","armadillo","auk","avocet"]},
 		{letter: "B", 
 		animals:["baboon","badger","bandicoot","barn owl","barracuda","bat","bear","beaver","bedbug","beetle","bird","bison","bluebird","boa constrictor","bobcat","booby","buffalo","bee","budgie","butterfly","bustard","buzzard"]},	
 		{letter: "C", 
 		animals:["canary","camel","capybara","cassowary","cat","caterpillar","catfish","centipede","chameleon","cheetah","chicken","chihuahua","chimpanzee","chinchilla","chipmunk","cicada","clam","cobra","cockatoo","cockroach","cocker spaniel","coral","cougar","cow","coyote","crab","crane","cricket","crocodile","crow","cuckoo","cuttlefish"]},	
 		{letter: "D", 
-		animals:["dachshund","dalmatian","deer","dingo","doberman pinscher","dodo","dog","dolphin","donkey","dormouse","dove","dragonfly","duck","duck billed platypus","dung beetle"]},	
+		animals:["dachshund","dalmatian","deer","dingo","doberman pinscher","dodo","dog","dogfish","dolphin","donkey","dormouse","dove","dragonfly","duck","duck billed platypus","dung beetle"]},	
 		{letter: "E", 
 		animals:["eagle","earwig","eel","egret","electric eel","elephant","elk","ermine","emu"]},	
 		{letter: "F", 
 		animals:["falcon","ferret","firefly","fish","finch","flamingo","flatworm","flea","fly","flying fish","flying frog","flying squirrel","forky taily","fox","frog"]},	
 		{letter: "G", 
-		animals:["gannett","gecko","gerbil","german shepherd","gibbon","gila monster","giraffe","glow worm","gnat","goat","goldfish","golden retriever","goose","gopher","gorilla","grasshopper","greenfly","greyhound","grizzly bear","groundhog","grouse","guinea pig","guppy"]},	
+		animals:["gannett","gecko","gerbil","german shepherd","gibbon","gila monster","giraffe","glow worm","gnat","gnu","goat","goldfish","golden retriever","goose","gopher","gorilla","grasshopper","greenfly","greyhound","grizzly bear","groundhog","grouse","guinea pig","guppy"]},	
 		{letter: "H", 
 		animals:["hammerhead shark","hamster","hare","harrier","hawk","hedgehog","hen","hermit crab","highland cow","hippopotamus","hog","hornet","horse","horseshoe crab","hummingbird","hyena"]},	
 		{letter: "J", 
@@ -184,7 +202,7 @@ function getWelcomeResponse(callback) {
 		{letter: "O", 
 		animals:["ocelot","octopus","old english sheepdog","opossum","orangutan","oryx","osprey","ostrich","otter","owl","ox","oyster","oystercatcher"]},		
 		{letter: "P", 
-		animals:["panda","panther","parrot","partridge","peacock","pelican","penguin","pheasant","pig","pigeon","pika","pike","pine marten","piranha","platypus","polar bear","polecat","poodle","porcupine","porpoise","possum","prairie dog","prawn","praying mantis","pronghorn","puffin","puma"]},			
+		animals:["panda","panther","parrot","partridge","peacock","pelican","penguin","pheasant","pig","pigeon","pika","pike","pine marten","piranha","platypus","polar bear","polecat","poodle","porcupine","porpoise","possum","prairie dog","prawn","praying mantis","pronghorn","puffin","puma","python"]},			
 		{letter: "R", 
 		animals:["rabbit","raccoon","rat","rattlesnake","raven","reindeer","rhinoceros","road runner","robin","rook","rottweiler"]},		
 		{letter: "S", 
@@ -230,6 +248,8 @@ function getWelcomeResponse(callback) {
 		phrase:"The jellyfish is not made of jelly and is not a fish! "},
 		{animal: "killer whale", 
 		phrase:"The killer whale is also known as the orca! "},		
+		{animal: "koala", 
+		phrase:"Koalas are not bears, they are arboreal herbivorous marsupials! "},	
 		{animal: "leopard", 
 		phrase:"Well spotted! "},
 		{animal: "lobster", 
@@ -314,6 +334,8 @@ function handleAnswerRequest(intent, session, callback) {
 				sessionAttributes = {},
 				gameInProgress = session.attributes;
 
+				console.log("intent name is: " + intent.name);
+				
     if (!gameInProgress) {
         // If the user responded with an answer but there is no game in progress, ask the user
         // if they want to start a new game. Set a flag to track that we've prompted the user.
@@ -343,10 +365,50 @@ function handleAnswerRequest(intent, session, callback) {
             buildSpeechletResponse(CARD_TITLE, cardOutput, speechOutput, repromptText, false));
     } 
 	
+	else if (intent.name === "AMAZON.YesIntent") {
+
+		if (free.length == 1) {
+			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free + '. '
+			cardOutput = "You could have had " + free}
+		else {
+			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
+			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '.'}
+		
+		var wordAnswer = getWordAnswer (currentScore);
+		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
+		speechOutput += 'Would you like to have another game? ';
+		repromptText = 'Would you like to have another game? ';				
+		// Set a flag to track that we're prompting to start a new game.
+		session.attributes.userPromptedForAnotherGame = true;
+		
+        callback(session.attributes,
+            buildSpeechletResponse(CARD_TITLE, cardOutput, speechOutput, repromptText, false));
+    } 
+
+	else if (intent.name === "AMAZON.NoIntent") {
+
+		if (free.length == 1) {
+			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free + '. '
+			cardOutput = "You could have had " + free}
+		else {
+			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
+			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '.'}
+		
+		var wordAnswer = getWordAnswer (currentScore);
+		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
+		speechOutput += 'Would you like to have another game? ';
+		repromptText = 'Would you like to have another game? ';				
+		// Set a flag to track that we're prompting to start a new game.
+		session.attributes.userPromptedForAnotherGame = true;
+		
+        callback(session.attributes,
+            buildSpeechletResponse(CARD_TITLE, cardOutput, speechOutput, repromptText, false));
+    } 
+	
 	else {
 				
 		myGuess = intent.slots.Answer.value;
-		myGuess = myGuess.toLowerCase();
+		if (typeof myGuess != 'undefined') {myGuess = myGuess.toLowerCase()}
 		
 		if (free.indexOf(myGuess) == -1) {var isGuessTrue = false}
 		else {var isGuessTrue = true}
@@ -398,10 +460,10 @@ function handleAnswerRequest(intent, session, callback) {
 				}
 			}
 		else {
-			
-			if (doneMe.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, you\'ve already said ' + myGuess + '. '}
-			else if
-			(doneAlexa.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, I\'ve already said ' + myGuess + '. '}
+
+			if (typeof myGuess === 'undefined') {speechOutput += 'Commiserations, you did not give an answer. '}
+			else if (doneMe.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, you\'ve already said ' + myGuess + '. '}
+			else if (doneAlexa.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, I\'ve already said ' + myGuess + '. '}
 			else 
 			{speechOutput += 'Commiserations, ' + myGuess + ' is a wrong answer! '}
 		
@@ -465,9 +527,9 @@ function handleGetHelpRequest(intent, session, callback) {
 		+ "We will take turns guessing the names of animals beginning with a letter of the alphabet that I randomly select. "
 		+ "I always take the first guess. "
 		+ "Some letters have more animals than others. "
-        + "To start a new game at any time, say, Alexa Start New Game. "
+        + "You can restart an existing game by saying, Start New Game. "
         + "Would you like to keep playing?",
-        repromptText = "Would you like to keep playing?";
+        repromptText = "Would you like to keep playing? ";
         var shouldEndSession = false;
     callback(session.attributes,
         buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession));
