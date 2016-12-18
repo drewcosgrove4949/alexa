@@ -87,6 +87,8 @@ function onIntent(intentRequest, session, callback) {
     var intent = intentRequest.intent,
         intentName = intentRequest.intent.name;
 
+		console.log("INTENT NAME: "+intentName);
+		
     // handle yes/no(anything but yes) intent after the user has been prompted
     if (session.attributes && session.attributes.userPromptedToContinue) {
         delete session.attributes.userPromptedToContinue;
@@ -106,14 +108,16 @@ function onIntent(intentRequest, session, callback) {
         } 
 		
 	// handle yes/no(anything but yes) intent after the user has been prompted for another game
-    if (session.attributes && session.attributes.userPromptedForAnotherGame) {
-        delete session.attributes.userPromptedForAnotherGame;
+    else if (session.attributes && session.attributes.userPromptedForAnotherGame) {
+        session.attributes.userPromptedForAnotherGame = false;
         if ("AMAZON.YesIntent" === intentName) {getWelcomeResponse(callback)}
 			else if ("AMAZON.StartOverIntent" === intentName) {
 				getWelcomeResponse(callback);
 			} else if ("AMAZON.RepeatIntent" === intentName) {
+				session.attributes.userPromptedForAnotherGame = true;
 				handleRepeatRequest(intent, session, callback);
 			} else if ("AMAZON.HelpIntent" === intentName) {
+				session.attributes.userPromptedForAnotherGame = true;
 				handleGetHelpRequest(intent, session, callback);
 			} else if ("AMAZON.StopIntent" === intentName) {
 				handleFinishSessionRequest(intent, session, callback);
@@ -176,43 +180,43 @@ function getWelcomeResponse(callback) {
 
 	var animalAnswers = [
 		{letter: "A", 
-		animals:["aardvark","aardwolf","adder","afghan hound","albatross","alligator","anaconda","ant","anteater","antelope","ape","aphid","arctic fox","armadillo","auk","avocet"]},
+		animals:["aardvark","aardwolf","abalone","adder","afghan hound","albatross","alligator","anaconda","anchovy","angelfish","anglerfish","ant","anteater","antelope","ape","aphid","arctic fox","armadillo","auk","avocet"]},
 		{letter: "B", 
-		animals:["baboon","badger","bandicoot","barn owl","barracuda","bat","bear","beaver","bedbug","beetle","bird","bison","bluebird","boa constrictor","bobcat","booby","buffalo","bee","budgie","butterfly","bustard","buzzard"]},	
+		animals:["baboon","bactrian camel","badger","bald eagle","bandicoot","barn owl","barnacle","barracuda","bat","beagle","bear","beaver","bedbug","bee","beetle","beluga whale","bengal tiger","bird","bird of paradise","bison","bloodhound","blue whale","bluebird","bluebottle","boa constrictor","boar","bobcat","bonobo","booby","boxer","buffalo","budgie","bulldog","bull mastiff","bull terrier","bumble bee","burmese cat","bushbaby","bustard","butterfly","buzzard"]},	
 		{letter: "C", 
-		animals:["canary","camel","capybara","cassowary","cat","caterpillar","catfish","centipede","chameleon","cheetah","chicken","chihuahua","chimpanzee","chinchilla","chipmunk","cicada","clam","cobra","cockatoo","cockroach","cocker spaniel","coral","cougar","cow","coyote","crab","crane","cricket","crocodile","crow","cuckoo","cuttlefish"]},	
+		animals:["canary","camel","capybara","cardinal","caribou","carp","cassowary","cat","caterpillar","catfish","centipede","chaffinch","chameleon","cheetah","chicken","chickenhawk","chihuahua","chimpanzee","chinchilla","chipmunk","cicada","civet cat","clam","clownfish","cobra","cockatiel","cockatoo","cockroach","cocker spaniel","cod","collie","coral","cormorant","cougar","cow","coyote","crab","crane","crane fly","cricket","crocodile","crow","cuckoo","cuttlefish"]},	
 		{letter: "D", 
-		animals:["dachshund","dalmatian","deer","dingo","doberman pinscher","dodo","dog","dogfish","dolphin","donkey","dormouse","dove","dragonfly","duck","duck billed platypus","dung beetle"]},	
+		animals:["dachshund","daddy long legs","dalmatian","deer","dingo","doberman pinscher","dodo","dog","dogfish","dolphin","donkey","dormouse","dove","dragonfly","dromedary camel","duck","duck billed platypus","dung beetle"]},	
 		{letter: "E", 
-		animals:["eagle","earwig","eel","egret","electric eel","elephant","elk","ermine","emu"]},	
+		animals:["eagle","earthworm","earwig","eel","egret","electric eel","elephant","elephant seal","elk","ermine","emu"]},	
 		{letter: "F", 
-		animals:["falcon","ferret","firefly","fish","finch","flamingo","flatworm","flea","fly","flying fish","flying frog","flying squirrel","forky taily","fox","frog"]},	
+		animals:["falcon","ferret","firefly","fish","finch","flamingo","flatworm","flea","flounder","fly","flying fish","flying frog","flying squirrel","forky taily","fox","foxhound","frog","fruit bat","fruit fly"]},	
 		{letter: "G", 
-		animals:["gannett","gecko","gerbil","german shepherd","gibbon","gila monster","giraffe","glow worm","gnat","gnu","goat","goldfish","golden retriever","goose","gopher","gorilla","grasshopper","greenfly","greyhound","grizzly bear","groundhog","grouse","guinea pig","guppy"]},	
+		animals:["gannett","gator","gazelle","gecko","gerbil","german shepherd","gibbon","gila monster","giraffe","glow worm","gnat","gnu","goat","goldfish","golden eagle","golden retriever","goose","gopher","gorilla","grasshopper","great dane","great white shark","greenfly","greyhound","grizzly bear","groundhog","ground squirrel","grouper","grouse","guinea pig","guineafowl","guppy"]},	
 		{letter: "H", 
-		animals:["hammerhead shark","hamster","hare","harrier","hawk","hedgehog","hen","hermit crab","highland cow","hippopotamus","hog","hornet","horse","horseshoe crab","hummingbird","hyena"]},	
+		animals:["haddock","hammerhead shark","hamster","hare","harrier","hawk","hedgehog","hen","hermit crab","heron","herring","highland cow","hippopotamus","hog","hornet","horse","horseshoe crab","hound","humans","hummingbird","humpback whale","husky","hyena"]},	
 		{letter: "J", 
 		animals:["jack russel","jackal","jackrabbit","jaguar","jay","jellyfish","jerboa"]},	
 		{letter: "K", 
-		animals:["kangaroo","kestrel","killer whale","kingfisher","kite","kiwi","koala","komodo dragon","kookaburra"]},	
+		animals:["kangaroo","kestrel","killer whale","king cobra","kingfisher","kite","kiwi","koala","kodiak bear","komodo dragon","kookaburra"]},	
 		{letter: "L", 
-		animals:["labrador","ladybird","lark","leech","lemming","lemur","leopard","lion","lizard","llama","lobster","locust","lynx"]},	
+		animals:["labrador","ladybird","ladybug","lamprey","lark","leech","lemming","lemur","leopard","lion","lizard","llama","lobster","locust","lynx"]},	
 		{letter: "M", 
-		animals:["magpie","manatee","mandrill","manta ray","marmot","marmoset","mayfly","meerkat","millipede","mink","mite","mole","mongoose","monkey","moose","mosquito","moth","mountain lion","mouse","mule","mule deer"]},				
+		animals:["macaw","mackerel","magpie","mamba","mammoth","manatee","mandrill","manta ray","manx cat","marmot","marmoset","mayfly","meerkat","millipede","mink","minke whale","mite","mole","mongoose","monkey","moose","mosquito","moth","mountain goat","mountain lion","mouse","mule","mule deer","mullet","mustang"]},				
 		{letter: "O", 
-		animals:["ocelot","octopus","old english sheepdog","opossum","orangutan","oryx","osprey","ostrich","otter","owl","ox","oyster","oystercatcher"]},		
+		animals:["ocelot","octopus","old english sheepdog","opossum","orangutan","orca","oryx","osprey","ostrich","otter","owl","ox","oyster","oystercatcher"]},		
 		{letter: "P", 
-		animals:["panda","panther","parrot","partridge","peacock","pelican","penguin","pheasant","pig","pigeon","pika","pike","pine marten","piranha","platypus","polar bear","polecat","poodle","porcupine","porpoise","possum","prairie dog","prawn","praying mantis","pronghorn","puffin","puma","python"]},			
+		animals:["panda","pangolin","panther","parakeet","parrot","partridge","peacock","pekingese","pelican","penguin","perch","peregrine falcon","persian cat","pheasant","pig","pigeon","pika","pike","pine marten","piranha","platypus","plover","pointer","polar bear","polecat","poodle","porcupine","porpoise","possum","prairie dog","prawn","praying mantis","pronghorn","puffin","pug","puma","python"]},			
 		{letter: "R", 
-		animals:["rabbit","raccoon","rat","rattlesnake","raven","reindeer","rhinoceros","road runner","robin","rook","rottweiler"]},		
+		animals:["rabbit","raccoon","rat","rattlesnake","raven","razorback","reindeer","rhinoceros","ringtail","roach","road runner","robin","rook","rottweiler"]},		
 		{letter: "S", 
-		animals:["saint bernard","salamander","salmon","scorpion","sea cucumber","sea lion","sea urchin","seagull","seahorse","seal","shark","sheep","shrew","shrimp","silkworm","skunk","sloth","slow worm","slug","snail","snake","sparrow","spider","spider monkey","sponge","squid","squirrel","squirrel monkey","starfish","starling","stick insect","stinkbug","stingray","stoat","swallow","swan","swift","swordfish"]},		
+		animals:["saber toothed tiger","saint bernard","salamander","salmon","sandpiper","sardine","sausage dog","scorpion","sea anemone","seabass","sea cucumber","sea lion","sea slug","sea urchin","seagull","seahorse","seal","shark","sheep","shih tzu","shrew","shrimp","siamese cat","siberian tiger","sidewinder","silkworm","skunk","sloth","slow worm","slug","snail","snake","snow leopard","sparrow","sperm whale","spider","spider monkey","sponge","springer spaniel","squid","squirrel","squirrel monkey","starfish","starling","stick insect","stinkbug","stingray","stoat","stork","sturgeon","swallow","swan","swift","swordfish"]},		
 		{letter: "T", 
-		animals:["tapir","tarantula","tasmanian devil","tawny owl","termite","terrapin","thrush","tick","tiger","toad","tortoise","toucan","trout","turkey","turtle"]},			
+		animals:["tapeworm","tapir","tarantula","tasmanian devil","tawny owl","termite","tern","terrapin","3 toed sloth","thrush","tick","tiger","toad","tortoise","toucan","tree frog","trout","tuna","turbot","turkey","turtle"]},			
 		{letter: "V", 
 		animals:["vampire bat","vampire squid","viper","vole","vulture"]},
 		{letter: "W",
-		animals:["wallaby","walrus","warthog","wasp","water buffalo","weasel","weevil","west highland terrier","whale","whippet","wild boar","wildebeest","wolf","wolverine","wombat","woodlouse","woodpecker","worm","wren"]},				
+		animals:["wallaby","walrus","warthog","wasp","water buffalo","weasel","weevil","whelk","west highland terrier","whale","whippet","wild boar","wildcat","wildebeest","wolf","wolverine","wombat","woodlouse","woodpecker","woodworm","wooly mammoth","worm","wren"]},				
 		{letter: "Z", 
 		animals:["zebra","zebu","zonkey","zorse"]},		
 		];
@@ -224,6 +228,8 @@ function getWelcomeResponse(callback) {
 		phrase:"You don't want one of those around your neck! "},
 		{animal: "avocet", 
 		phrase:"The avocet is the emblem of the Royal Society for the Protection of Birds! "},
+		{animal: "bactrian camel", 
+		phrase:"The bactrian camel has 2 humps! "},
 		{animal: "bear", 
 		phrase:"Hey bear Hey bear! "},
 		{animal: "bee", 
@@ -238,18 +244,26 @@ function getWelcomeResponse(callback) {
 		phrase:"What a shocking creature! "},	
 		{animal: "ermine", 
 		phrase:"Ermine is another name for a stoat, especially when the stoat has its white winter coat! "},	
+		{animal: "dromedary camel", 
+		phrase:"The dromedary camel has 1 hump! "},
 		{animal: "giraffe", 
 		phrase:"Ooooo! You stuck your neck out on that one! "},
 		{animal: "glow worm", 
 		phrase:"I wish I was a glow worm as a glow worms never glum, its hard to be down hearted when the sun shines out your bum! "},				
 		{animal: "grizzly bear", 
 		phrase:"Hey bear Hey bear! "},
+		{animal: "humans", 
+		phrase:"Humans are my favourite animal! "},
 		{animal: "jellyfish", 
 		phrase:"The jellyfish is not made of jelly and is not a fish! "},
 		{animal: "killer whale", 
 		phrase:"The killer whale is also known as the orca! "},		
 		{animal: "koala", 
 		phrase:"Koalas are not bears, they are arboreal herbivorous marsupials! "},	
+		{animal: "ladybird", 
+		phrase:"In North America the ladybird is called the ladybug! "},
+		{animal: "lamprey", 
+		phrase:"King Henry the first of england, died by eating too many lampreys. "},		
 		{animal: "leopard", 
 		phrase:"Well spotted! "},
 		{animal: "lobster", 
@@ -262,12 +276,16 @@ function getWelcomeResponse(callback) {
 		phrase:"Whose a pretty boy then? "},
 		{animal: "road runner", 
 		phrase:"Beep Beep! "},
+		{animal: "saber toothed tiger", 
+		phrase:"Saber toothed tigers became extinct around 12000 years ago. "},
 		{animal: "sea cucumber", 
 		phrase:"When threatened, sea cucumbers jettison some of their internal organs. The missing body parts are quickly regenerated! "},
 		{animal: "shark", 
 		phrase:"In my experience sharks are best avoided, especially loan sharks! "},
 		{animal: "spider", 
 		phrase:"Spiders are not insects, they are arachnids. Other arachnids include scorpions, ticks and mites. "},
+		{animal: "sturgeon", 
+		phrase:"Sturgeons can be harvested for their roe, which is sold as caviar. "},
 		{animal: "swan", 
 		phrase:"In the UK, the mute swan is protected by the queen and it is a criminal offence to harm one. "},
 		{animal: "vulture", 
@@ -276,6 +294,8 @@ function getWelcomeResponse(callback) {
 		phrase:"That was a stinging response! "},	
 		{animal: "woodpecker", 
 		phrase:"Rat a tat tat! "},
+		{animal: "wooly mammoth", 
+		phrase:"The wooly mammoth died out thousands of years ago, but their frozen carcasses have been found in Siberia and Alaska. "},
 		{animal: "zonkey", 
 		phrase:"Is it a zebra? Is it a donkey? No, it's a zonkey! "},
 		{animal: "zorse", 
@@ -309,7 +329,8 @@ function getWelcomeResponse(callback) {
 		"doneMe": [],
 		"doneAlexa": doneAlexa,
         "score": 0,
-		"totalNumberAnswers": totalNumberAnswers
+		"totalNumberAnswers": totalNumberAnswers,
+		"userPromptedForAnotherGame": false
     };
     callback(sessionAttributes,
         buildSpeechletResponse(CARD_TITLE, cardOutput, speechOutput, repromptText, shouldEndSession));
@@ -327,7 +348,7 @@ function handleAnswerRequest(intent, session, callback) {
 				myGuess ="",
 				alexaGuess ="",
 				personalityPhrase = "",
-				userPromptedForAnotherGame = false,
+				userPromptedForAnotherGame = session.attributes.userPromptedForAnotherGame,
 				repromptText = 'If you dont answer within the next few seconds the game will time out. Last chance, name an animal starting with the letter '+ letter + '. ',
 				speechOutput = "",
 				cardOutput = "",
@@ -352,7 +373,7 @@ function handleAnswerRequest(intent, session, callback) {
 			cardOutput = "You could have had " + free}
 		else {
 			speechOutput += 'Hard luck. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
-			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '.'}
+			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '. '}
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
@@ -372,7 +393,7 @@ function handleAnswerRequest(intent, session, callback) {
 			cardOutput = "You could have had " + free}
 		else {
 			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
-			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '.'}
+			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '. '}
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
@@ -392,7 +413,7 @@ function handleAnswerRequest(intent, session, callback) {
 			cardOutput = "You could have had " + free}
 		else {
 			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
-			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '.'}
+			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '. '}
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
@@ -409,7 +430,7 @@ function handleAnswerRequest(intent, session, callback) {
 				
 		myGuess = intent.slots.Answer.value;
 		if (typeof myGuess != 'undefined') {myGuess = myGuess.toLowerCase()}
-		
+				
 		if (free.indexOf(myGuess) == -1) {var isGuessTrue = false}
 		else {var isGuessTrue = true}
 
@@ -451,24 +472,57 @@ function handleAnswerRequest(intent, session, callback) {
 					repromptText = 'Would you like to have another game? ';		
 					// Set a flag to track that we're prompting to start a new game.
 					userPromptedForAnotherGame = true;
-					cardOutput = 'The animal you guessed was: ' + myGuess + '. \n \n The animal Alexa guessed was: ' + alexaGuess +'. \n \n Alexa has no record of any more animals starting with the letter ' + letter +'.';
+					cardOutput = 'The animal you guessed was: ' + myGuess + '. \n \n The animal Alexa guessed was: ' + alexaGuess +'. \n \n Alexa has no record of any more animals starting with the letter ' + letter +'. ';
 					}
 					else {
 				speechOutput += 'Its your turn, name an animal starting with the letter ' + letter + '. ';
-				cardOutput = 'The animal you guessed was: ' + myGuess + '. \n \n The animal Alexa guessed was: ' + alexaGuess + '.';
+				cardOutput = 'The animal you guessed was: ' + myGuess + '. \n \n The animal Alexa guessed was: ' + alexaGuess + '. ';
 					}
 				}
 			}
 		else {
 
+			console.log("               ");
+			console.log("*** WRONG GUESS: "+myGuess);
+			console.log("               ");
+					
 			if (typeof myGuess === 'undefined') {speechOutput += 'Commiserations, you did not give an answer. '}
 			else if (doneMe.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, you\'ve already said ' + myGuess + '. '}
 			else if (doneAlexa.indexOf(myGuess) !== -1) {speechOutput += 'Commiserations, I\'ve already said ' + myGuess + '. '}
 			else 
 			{speechOutput += 'Commiserations, ' + myGuess + ' is a wrong answer! '}
 		
+			var dino =["allosaurus","brontosaurus","dinosaur","diplodocus","pterodactyl","stegosaurus","triceratops","tyrannosaurus","tyrannosaurus rex","t. rex","velociraptor"];
+			var myth =["basilisk","centaur","dragon","elf","fairy","goblin","griffin","halfling","hippogriff","leprechaun","loch ness monster","mermaid","pixie","sphinx","troll","werewolf"];
+			var family =["amphibian","arachnid","mammal","marsupial","mollusc","reptile","shellfish"];
+			var starwars =["ewok","tusken raider","womp rat","wookiee"];
+			var ring =["balrog","gollum","hobbit","orc","smaug"];
+			var baby =["kitten","lamb","puppy"];
+			
+			if (myGuess == 'bacteria') {speechOutput += 'Bacteria are not members of the animal kingdom. '}
+			else if (myGuess == 'virus') {speechOutput += 'Viruses are not members of the animal kingdom. '}
+			else if (myGuess == 'jackalope') {speechOutput += 'There aint no such thing as a jackalope. '}
+			else if (myGuess == 'pokémon') {speechOutput += 'There are no pokémon to be caught in this game. '}			
+			else if (myGuess == 'hello') {speechOutput += 'Hello to you too. Delighted to make your acquaintance. '}	
+			else if (myGuess == 'gruffalo') {speechOutput += 'Silly you, don\'t you know? There\'s no such thing as a gruffalo! '}	
+			else if (myGuess == 'jitterbug') {speechOutput += 'This is no time for dancing! '}	
+			else if (myGuess == 'blah blah') {speechOutput += 'Blah blah to you too. '}		
+			else if (myGuess == 'blah blah blah') {speechOutput += 'Blah blah blah to you too. '}	
+			else if (myGuess == 'woof woof') {speechOutput += 'Woof woof to you too. '}	
+			else if (myGuess == 'jabberwocky') {speechOutput += 'Such nonsense! Beware the Jabberwock my son, The jaws that bite the claws that catch, Beware the Jubjub bird and shun, The frumious Bandersnatch! '}	  
+			else if (myGuess == 'koala bear') {speechOutput += 'Koalas are not bears, they are marsupials! Next time just say, Koala. '}
+			else if (myGuess == 'spaniel') {speechOutput += 'Be more specific, next time try saying, springer spaniel! '}
+			else if (dino.indexOf(myGuess) !== -1) {speechOutput += 'Dinosaurs are too big a subject for this game! '}		
+			else if (myth.indexOf(myGuess) !== -1) {speechOutput += 'I love fantastic beasts, but only animals from the real world are allowed in this game! '}	
+			else if (family.indexOf(myGuess) !== -1) {speechOutput += 'You need to be more precise, next time give me a specific type of '+ myGuess +'. '}
+			else if (starwars.indexOf(myGuess) !== -1) {speechOutput += 'No animals from a galaxy far far away are allowed in this game! '}	
+			else if (ring.indexOf(myGuess) !== -1) {speechOutput += 'This isn\'t middle earth, such an answer shall not pass. '}
+			else if (baby.indexOf(myGuess) !== -1) {speechOutput += 'There are no baby animals in this game. '}
+			else if (letter ="k" && myGuess.charAt(0) == "c") {speechOutput += myGuess + ' starts with the letter c, not the letter k. '}
+			else if (letter ="c" && myGuess.charAt(0) == "k") {speechOutput += myGuess + ' starts with the letter k, not the letter c. '}
+			
 			if (free.length == 1) {speechOutput += 'You could have had, ' + free + '. '
-			cardOutput = 'Wrong answer, you could have had ' + free + '.'}
+			cardOutput = 'Wrong answer, you could have had ' + free + '. '}
 			else {
 			speechOutput += 'You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '}
 			var wordAnswer = getWordAnswer (currentScore);
@@ -477,7 +531,7 @@ function handleAnswerRequest(intent, session, callback) {
 			repromptText = 'Would you like to have another game? ';		
 			// Set a flag to track that we're prompting to start a new game.
 			userPromptedForAnotherGame = true;
-			cardOutput = 'Wrong answer, you could have had ' + free[0] + ' or ' + free[free.length-1] + '.'
+			cardOutput = 'Wrong answer, you could have had ' + free[0] + ' or ' + free[free.length-1] + '. '
 			}
 			
         sessionAttributes = {
