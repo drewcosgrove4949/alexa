@@ -183,7 +183,7 @@ function getWelcomeResponse(justLaunched,session,callback) {
 		{letter: "B", 
 		animals:["baboon","bactrian camel","badger","bald eagle","bandicoot","barn owl","barnacle","barracuda","basking shark","basset hound","bat","beagle","bear","bearded dragon","beaver","bedbug","bee","beetle","beluga whale","bengal tiger","bighorn sheep","bird","bird of paradise","bison","bloodhound","blue whale","bluebird","bluebottle","blue jay","boa constrictor","boar","bobcat","bonobo","booby","border collie","boston terrier","bottlenose dolphin","boxer","brontosaurus","budgie","buffalo","bug","bull","bulldog","bullfrog","bull mastiff","bull terrier","bumble bee","burmese cat","burro","bushbaby","bustard","butterfly","buzzard"]},	
 		{letter: "C", 
-		animals:["calf","calico cat","canary","camel","capybara","cardinal","caribou","carp","cassowary","cat","caterpillar","catfish","centipede","chachalaca","chaffinch","chameleon","cheetah","chickadee","chicken","chickenhawk","chihuahua","chimpanzee","chinchilla","chipmunk","chuck","chuckwalla","cicada","civet cat","clam","clownfish","cobra","cockatiel","cockatoo","cockerel","cockroach","cocker spaniel","cod","colt","collie","copperhead snake","coral","coral snake","cormorant","cottonmouth snake","cougar","cow","coyote","crab","crane","crane fly","crayfish","cricket","crocodile","crow","cub","cuckoo","cuttlefish"]},	
+		animals:["calf","calico cat","canary","camel","capybara","cardinal","caribou","carp","cassowary","cat","caterpillar","catfish","centipede","chachalaca","chaffinch","chameleon","cheetah","chickadee","chicken","chickenhawk","chihuahua","chimpanzee","chinchilla","chipmunk","chuck","chuckwalla","cicada","civet cat","clam","clownfish","cobra","cockatiel","cockatoo","cockerel","cockroach","cocker spaniel","cod","colt","collie","condor","copperhead snake","coral","coral snake","cormorant","cottonmouth snake","cougar","cow","coyote","crab","crane","crane fly","crayfish","cricket","crocodile","crow","cub","cuckoo","cuttlefish"]},	
 		{letter: "D", 
 		animals:["dachshund","daddy long legs","dalmatian","deer","dingo","diplodocus","doberman pinscher","dodo","dog","dogfish","dolphin","donkey","dormouse","dove","dragonfly","dromedary camel","duck","duck billed platypus","dung beetle"]},	
 		{letter: "E", 
@@ -191,15 +191,15 @@ function getWelcomeResponse(justLaunched,session,callback) {
 		{letter: "F", 
 		animals:["falcon","fawn","ferret","field mouse","fire ant","firefly","fish","finch","flamingo","flatworm","flea","flounder","fluke","fly","flying fish","flying frog","flying squirrel","forky taily","foal","fox","fox squirrel","fox terrier","foxhound","french bulldog","frog","fruit bat","fruit fly"]},	
 		{letter: "G", 
-		animals:["gannett","garter snake","gator","gazelle","gecko","gerbil","german shepherd","ghost crab","giant clam","giant panda","giant squid","giant tortoise","gibbon","gila monster","giraffe","glow worm","gnat","gnu","goat","goldfinch","goldfish","golden eagle","golden retriever","goose","gopher","gorilla","goshawk","grasshopper","gray seal","gray squirrel","gray wolf","great dane","great white shark","green and black poison dart frog","greenfly","greyhound","grizzly","grizzly bear","groundhog","ground squirrel","grouper","grouse","guinea pig","guineafowl","gull","guppy"]},	
+		animals:["gannett","garter snake","gator","gazelle","gecko","gerbil","german shepherd","ghost crab","giant clam","giant panda","giant squid","giant tortoise","gibbon","gila monster","giraffe","glow worm","gnat","gnu","goat","goldfinch","goldfish","golden eagle","golden retriever","goose","gopher","gorilla","goshawk","grasshopper","gray fox","gray seal","gray squirrel","gray wolf","great dane","great white shark","green and black poison dart frog","greenfly","greyhound","grizzly","grizzly bear","groundhog","ground squirrel","grouper","grouse","guinea pig","guineafowl","gull","guppy"]},	
 		{letter: "H", 
-		animals:["haddock","halibut","hammerhead shark","hamster","hare","harrier","hawk","hedgehog","hen","hermit crab","heron","herring","highland cow","hippopotamus","hissing cockroach","hog","honey bee","honey bear","honeycreeper","hoot owl","hornbill","horned lizard","hornet","horse","horse fly","horseshoe crab","hound","housefly","humans","hummingbird","humpback whale","husky","hyena"]},	
+		animals:["haddock","halibut","hammerhead shark","hamster","hare","harrier","hawk","hedgehog","hen","hermit crab","heron","herring","highland cow","hippopotamus","hissing cockroach","hog","honey badger","honey bee","honey bear","honeycreeper","hoot owl","hornbill","horned lizard","hornet","horse","horse fly","horseshoe crab","hound","housefly","humans","hummingbird","humpback whale","husky","hyena"]},	
 		{letter: "J", 
 		animals:["jack russell","jackal","jackass","jackdaw","jackrabbit","jaguar","japanese chin","jay","jellyfish","jerboa","joey","junebug","jungle cat"]},	
 		{letter: "K", 
 		animals:["kangaroo","kangaroo rat","kestrel","kid","killer bee","killer whale","king cobra","king crab","king penguin","kingfisher","king snake","kinkajou","kite","kitten","kiwi","koala","kodiak bear","komodo dragon","kookaburra","krill"]},	
 		{letter: "L", 
-		animals:["labrador","labra doodle","ladybird","ladybug","lamb","lamprey","lark","leech","lemming","lemur","leopard","leopard seal","leveret","lhasa apso","liger","lightning bug","limpet","lion","lionfish","little owl","little penguin","lizard","llama","lobster","locust","loggerhead turtle","longhorn","loon","louse","lynx"]},	
+		animals:["labrador","labra doodle","ladybird","ladybug","lamb","lamprey","lark","leech","lemming","lemur","leopard","leopard seal","leopard shark","leveret","lhasa apso","liger","lightning bug","limpet","lion","lionfish","little owl","little penguin","lizard","llama","lobster","locust","loggerhead turtle","longhorn","loon","louse","lynx"]},	
 		{letter: "M", 
 		animals:["macaw","macaroni penguin","macaque","mackerel","maggot","magpie","maine coon","maltese","mallard","mamba","mammoth","manatee","mandrill","manta ray","mantis shrimp","manx cat","marmot","marmoset","mastiff","mastodon","mayfly","meerkat","millipede","mink","minke whale","minnow","mite","mockingbird","mole","monarch butterfly","mongoose","monkey","monkfish","monitor lizard","moose","mosquito","moth","mountain goat","mountain gorilla","mountain lion","mouse","mule","mule deer","mullet","muskrat","mustang","mussel","mute swan"]},				
 		{letter: "O", 
@@ -209,7 +209,7 @@ function getWelcomeResponse(justLaunched,session,callback) {
 		{letter: "R", 
 		animals:["rabbit","raccoon","rainbow trout","ram","rat","rattlesnake","raven","razor clam","razorback","red admiral","red fox","red panda","red snapper","red squirrel","red wolf","reindeer","retriever","rhinoceros","rhinoceros beetle","rhodesian ridgeback","ringtail","river dolphin","roach","road runner","robin","rockfish","rockhopper penguin","roe deer","rook","rooster","rottweiler"]},		
 		{letter: "S", 
-		animals:["saber toothed tiger","saint bernard","salamander","salmon","sand dollar","sandhill crane","sandpiper","sardine","sausage dog","scallop","schnauzer","scorpion","scottish terrier","screech owl","sea anemone","seabass","sea cucumber","sea lion","sea otter","sea slug","sea urchin","seagull","seahorse","sea turtle","seal","serval cat","setter","shark","sheep","shetland pony","shih tzu","shrew","shrimp","siamese cat","siberian husky","siberian tiger","sidewinder","silkworm","silverback gorilla","silverfish","skunk","sloth","slow worm","slug","snail","snake","snapping turtle","snow crab","snow goose","snow leopard","sole","sparrow","spectacled bear","sperm whale","spider","spider monkey","sponge","spaniel","squid","squirrel","squirrel monkey","staffordshire bull terrier","starfish","starling","stegosaurus","stick insect","stinkbug","stingray","stoat","stork","sturgeon","sun bear","swallow","swan","swift","swordfish"]},		
+		animals:["saber toothed tiger","sable","saint bernard","salamander","salmon","sand dollar","sandhill crane","sandpiper","sardine","sausage dog","scallop","schnauzer","scorpion","scottish terrier","screech owl","sea anemone","seabass","sea cucumber","sea lion","sea otter","sea slug","sea urchin","seagull","seahorse","sea turtle","seal","serval cat","setter","shark","sheep","shetland pony","shih tzu","shrew","shrimp","siamese cat","siberian husky","siberian tiger","sidewinder","silkworm","silverback gorilla","silverfish","skunk","sloth","slow worm","slug","snail","snake","snapping turtle","snow crab","snow goose","snow leopard","sole","sparrow","spectacled bear","sperm whale","spider","spider monkey","sponge","spaniel","squid","squirrel","squirrel monkey","staffordshire bull terrier","starfish","starling","stegosaurus","stick insect","stinkbug","stingray","stoat","stork","sturgeon","sun bear","swallow","swan","swift","swordfish"]},		
 		{letter: "T", 
 		animals:["tadpole","tapeworm","tapir","tarantula","tasmanian devil","tawny owl","termite","tern","terrapin","terrier","texas longhorn","2 toed sloth","thrasher","3 toed sloth","thrush","tibetan mastiff","tick","tiger","tigon","tiger shark","timberwolf","toad","tomcat","tortoise","toucan","tree frog","triceratops","trout","true owl","trumpeter swan","tsetse fly","tuna","turbot","turkey","turtle","tyrannosaurus rex"]},			
 		{letter: "V", 
@@ -265,6 +265,8 @@ function getWelcomeResponse(justLaunched,session,callback) {
 		phrase:"The killer whale is also known as the orca! "},		
 		{animal: "kinkajou", 
 		phrase:"The kinkajou is sometimes called the honey bear, even though it is not a bear. "},			
+		{animal: "kitten", 
+		phrase:"Kitten is the name for a baby cat, but also the name for a baby rabbit, and also the name for a baby rat! "},	
 		{animal: "koala", 
 		phrase:"Koalas are not bears, they are arboreal herbivorous marsupials! "},	
 		{animal: "ladybird", 
@@ -298,7 +300,7 @@ function getWelcomeResponse(justLaunched,session,callback) {
 		{animal: "swan", 
 		phrase:"In the UK, the mute swan is protected by the queen and it is a criminal offence to harm one. "},
 		{animal: "sun bear", 
-		phrase:"Like the kinkajou, the sun bear is sometimes called the honey bear. However, unlike the Kinkajou, the sun bear is actually a bear. "},	
+		phrase:"The sun bear is sometimes called the honey bear. "},	
 		{animal: "tigon", 
 		phrase:"The tigon is a cross between a male tiger and a female lion. "},
 		{animal: "vulture", 
@@ -394,14 +396,25 @@ function handleAnswerRequest(intent, session, callback) {
 	else if (intent.name === "DontKnowIntent") {
 
 		if (free.length == 1) {
-			speechOutput += 'Hard luck, you were so close. I only had 1 more animal beginning with the letter '+ letter + ' on my list. You could have had ' + free + '. '
+			speechOutput += 'Hard luck, you were so close. I only had 1 more animal beginning with the letter '+ letter + ' on my list. You could have had ' + free + '. '			
 			cardOutput = "You could have had " + free}
 		else {
-			speechOutput += 'Hard luck. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
+			speechOutput += 'Hard luck. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '			
 			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '. '}
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
+		
+		if (currentScore >= 20) {
+			var lastAnswer = doneMe.pop();
+			speechOutput += 'Hoot hoot, what an incredible score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + ', you must be a zoologist! ' }			
+		else if (currentScore >= 10) {
+			var lastAnswer = doneMe.pop();				
+			speechOutput += 'Woof woof, great score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ' }
+		else if (currentScore >= 5) {
+			var lastAnswer = doneMe.pop();	
+			speechOutput += 'Meow meow, good score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. '}
+		
 		speechOutput += 'Would you like to have another game? ';
 		repromptText = 'Would you like to have another game? ';				
 		// Set a flag to track that we're prompting to start a new game.
@@ -414,14 +427,25 @@ function handleAnswerRequest(intent, session, callback) {
 	else if (intent.name === "AMAZON.YesIntent") {
 
 		if (free.length == 1) {
-			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free + '. '
+			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free + '. '			
 			cardOutput = "You could have had " + free}
 		else {
-			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
+			speechOutput += 'Hard luck. You said yes. Yes is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '			
 			cardOutput = 'Hard luck. You could have had ' + free[0] + ' or ' + free[free.length-1] + '. '}
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
+
+		if (currentScore >= 20) {
+			var lastAnswer = doneMe.pop();
+			speechOutput += 'Hoot hoot, what an incredible score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + ', you must be a zoologist! ' }			
+		else if (currentScore >= 10) {
+			var lastAnswer = doneMe.pop();				
+			speechOutput += 'Woof woof, great score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ' }
+		else if (currentScore >= 5) {
+			var lastAnswer = doneMe.pop();	
+			speechOutput += 'Meow meow, good score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. '}		
+		
 		speechOutput += 'Would you like to have another game? ';
 		repromptText = 'Would you like to have another game? ';				
 		// Set a flag to track that we're prompting to start a new game.
@@ -434,7 +458,7 @@ function handleAnswerRequest(intent, session, callback) {
 	else if (intent.name === "AMAZON.NoIntent") {
 
 		if (free.length == 1) {
-			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free + '. '
+			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free + '. '			
 			cardOutput = "You could have had " + free}
 		else {
 			speechOutput += 'Hard luck. You said no. No is not an animal. You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '
@@ -442,6 +466,17 @@ function handleAnswerRequest(intent, session, callback) {
 		
 		var wordAnswer = getWordAnswer (currentScore);
 		speechOutput += 'You got, ' + currentScore.toString() + wordAnswer + '. ';
+
+		if (currentScore >= 20) {
+			var lastAnswer = doneMe.pop();
+			speechOutput += 'Hoot hoot, what an incredible score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + ', you must be a zoologist! ' }			
+		else if (currentScore >= 10) {
+			var lastAnswer = doneMe.pop();				
+			speechOutput += 'Woof woof, great score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ' }
+		else if (currentScore >= 5) {
+			var lastAnswer = doneMe.pop();	
+			speechOutput += 'Meow meow, good score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. '}
+
 		speechOutput += 'Would you like to have another game? ';
 		repromptText = 'Would you like to have another game? ';				
 		// Set a flag to track that we're prompting to start a new game.
@@ -552,11 +587,17 @@ function handleAnswerRequest(intent, session, callback) {
 
 		speechOutput = "Well done, " + myGuess + " is a correct answer! ";
 		speechOutput += personalityPhrase;
-
+		
+		var dino =["allosaurus","apatosaurus","brontosaurus","pterodactyl","stegosaurus","triceratops","tyrannosaurus rex"];
+		if (dino.indexOf(myGuess) !== -1) {speechOutput += 'Give me a D, give me an I, give me an N, give me an O, dinosaur dinosaur dinosaur! '}		
+		
 			if ((doneAlexa.length + doneMe.length) == totalNumberAnswers) {
 				speechOutput += 'Congratulations, you win, I can\'t think of any more animals starting with the letter ' + letter +'. ';
 				var wordAnswer = getWordAnswer (currentScore);
-				speechOutput += 'You got ' + currentScore.toString() + wordAnswer;
+				speechOutput += 'You got, ' + currentScore.toString() + wordAnswer;
+
+				var lastAnswer = doneMe.pop();	
+				speechOutput += 'You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ';
 				
 				speechOutput += 'Would you like to have another game? ';
 				repromptText = 'Would you like to have another game? ';				
@@ -571,8 +612,12 @@ function handleAnswerRequest(intent, session, callback) {
 				speechOutput += 'My guess is, ' + alexaGuess +'. ';
 					if ((doneAlexa.length + doneMe.length) == totalNumberAnswers) {
 					speechOutput += 'The game is a draw. Well done. There are no more animals starting with the letter ' + letter + ' on my list. '
-					var wordAnswer = getWordAnswer (currentScore);
-					speechOutput += 'You got ' + currentScore.toString() +  wordAnswer;
+					var wordAnswer = getWordAnswer (currentScore);					
+					speechOutput += 'You got, ' + currentScore.toString() +  wordAnswer;
+
+					var lastAnswer = doneMe.pop();	
+					speechOutput += 'You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ';					
+					
 					speechOutput += 'Would you like to have another game? ';
 					repromptText = 'Would you like to have another game? ';		
 					// Set a flag to track that we're prompting to start a new game.
@@ -601,7 +646,7 @@ function handleAnswerRequest(intent, session, callback) {
 			{speechOutput += 'Commiserations, ' + myGuess + ' is a wrong answer! '}
 		
 			var myth =["basilisk","bigfoot","centaur","cheshire cat","chupacabra","dragon","elf","fairy","goblin","godzilla","griffin","hippogriff","king kong","leprechaun","loch ness monster","mermaid","minotaur","pegasus","pixie","phoenix","sasquatch","sphinx","troll","vampire","werewolf"];
-			var family =["animal","amphibian","arachnid","beast","canine","cattle","creature","crustacean","dinosaur","equine","feline","mammal","marsupial","mollusc","raptor","reptile","rodent","shellfish","songbird"];
+			var family =["animal","amphibian","arachnid","beast","canine","cattle","creature","crustacean","dinosaur","equine","feline","mammal","marsupial","mollusc","raptor","reptile","rodent","shellfish","songbird","vermin"];
 			var starwars =["ewok","jar jar binks","tusken raider","womp rat","wookiee"];
 			var ring =["gollum","hobbit"];
 			var cute =["beastie","bunny","bunny rabbit","creepy crawly","kitty","pussy","pussycat"];
@@ -616,8 +661,7 @@ function handleAnswerRequest(intent, session, callback) {
 			else if (myGuess == 'pokémon') {speechOutput += 'There are no pokémon to be caught in this game. '}			
 			else if (myGuess == 'hello') {speechOutput += 'Hello to you too. Delighted to make your acquaintance. '}	
 			else if (myGuess == 'gruffalo') {speechOutput += 'Silly you, don\'t you know? There\'s no such thing as a gruffalo! '}	
-			else if (myGuess == 'jitterbug') {speechOutput += 'This is no time for dancing! '}	
-			else if (myGuess == 'land shark') {speechOutput += 'This is Animal Letters, not Saturday Night Live! '}				
+			else if (myGuess == 'jitterbug') {speechOutput += 'This is no time for dancing! '}			
 			else if (myGuess == 'blah blah') {speechOutput += 'Blah blah to you too. '}		
 			else if (myGuess == 'blah blah blah') {speechOutput += 'Blah blah blah to you too. '}	
 			else if (myGuess == 'um') {speechOutput += 'There\'s no time for umming and ahing in this game. '}	
@@ -643,7 +687,18 @@ function handleAnswerRequest(intent, session, callback) {
 			else {
 			speechOutput += 'You could have had ' + free[0] + ', or ' + free[free.length-1] + '. '}
 			var wordAnswer = getWordAnswer (currentScore);
-			speechOutput += 'You got ' + currentScore.toString() +  wordAnswer;
+			speechOutput += 'You got, ' + currentScore.toString() +  wordAnswer;
+
+			if (currentScore >= 20) {
+				var lastAnswer = doneMe.pop();
+				speechOutput += 'Hoot hoot, what an incredible score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + ', you must be a zoologist! ' }			
+			else if (currentScore >= 10) {
+				var lastAnswer = doneMe.pop();				
+				speechOutput += 'Woof woof, great score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. ' }
+			else if (currentScore >= 5) {
+				var lastAnswer = doneMe.pop();	
+				speechOutput += 'Meow meow, good score! You guessed ' + doneMe.join() + ', and, ' + lastAnswer + '. '}
+			
 			speechOutput += 'Would you like to have another game? ';
 			repromptText = 'Would you like to have another game? ';		
 			// Set a flag to track that we're prompting to start a new game.
